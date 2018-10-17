@@ -1,0 +1,13 @@
+<table class="table table-bordered table-hover">
+	<tr>
+		<th><h2>Id</h2></th>
+		 <th><h2>Name</h2></th>
+		 <th><h2>Department</h2></th>
+ </tr>
+
+    <tr *ngFor="let cust of employees">
+		<td><h4>{{cust.id}}</h4> </td>
+		<td><h4>{{cust.employeeName}}</h4></td>
+		<td><h4>{{cust.department.departmentName}}</h4></td>
+	</tr>
+</table>
