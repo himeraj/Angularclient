@@ -11,7 +11,6 @@ export class DataService {
 
   constructor(private http: Http) {}
 
-  // Get all customers
   getEmployees(): Promise<Employee[]> {
     return this.http.get("http://localhost:8090/demo/employees")
       .toPromise()
@@ -20,7 +19,7 @@ export class DataService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('Error', error); // for demo purposes only
+    console.error('Error', error);
     return Promise.reject(error.message || error);
   }
 }
