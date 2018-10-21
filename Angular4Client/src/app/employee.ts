@@ -1,7 +1,9 @@
 import { Department } from "./department";
 
 export class Employee {
-    public id: number;
+    public employeeId: number;
     public firstName: string;
-    public department: Department;
+    public departmentId: number;
+    public departmentName : string;
+    public isEdit : false;
 }

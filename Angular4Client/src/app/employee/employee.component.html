@@ -1,13 +1,35 @@
-<table class="table table-bordered table-hover">
+<table class="table">
 	<tr>
 		<th><h2>Id</h2></th>
 		 <th><h2>Name</h2></th>
 		 <th><h2>Department</h2></th>
+		 <th><h2>Actions</h2></th>
  </tr>
 
     <tr *ngFor="let cust of employees">
-		<td><h4>{{cust.id}}</h4> </td>
-		<td><h4>{{cust.employeeName}}</h4></td>
-		<td><h4>{{cust.department.departmentName}}</h4></td>
+		<td><h4>{{cust.employeeId}}</h4></td>
+
+		<td *ngIf="editRowId == cust.employeeId">
+			<input type="text" [(ngModel)]="cust.employeeName" />
+		</td>
+		<td *ngIf="editRowId !== cust.employeeId">
+			<h4>{{cust.employeeName}}</h4>
+		</td>
+		<td *ngIf="editRowId == cust.employeeId">
+				<select [(ngModel)]="selectedOption" name="lastname" (change)="setSelectedOption(selectedOption)">
+					<option *ngFor="let department of departments" value={{department.departmentId}}>
+						{{department.departmentName}}
+					</option>
+				</select>
+			</td>
+			<td *ngIf="editRowId !== cust.employeeId"><h4>{{cust.departmentName}}</h4></td>
+			<td>
+				<button *ngIf="editRowId !== cust.employeeId" id='delete-button' class='btn' (click)="edit(cust)"><span class='glyphicon glyphicon-pencil'></span></button>
+				<button *ngIf="editRowId == cust.employeeId" id='delete-button' class='btn' (click)="update(cust)"><span class='glyphicon glyphicon-ok'></span></button>&nbsp;&nbsp;
+				<button *ngIf="editRowId == cust.employeeId" id='delete-button' class='btn' (click)="cancel()"><span class='glyphicon glyphicon-remove'></span></button>&nbsp;&nbsp;
+				&nbsp;&nbsp;
+				<button id='delete-button' class='btn btn-danger' (click)="delete(cust)"><span class='glyphicon glyphicon-trash'></span></button>
+			</td>
+		
 	</tr>
 </table>

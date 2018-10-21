@@ -6,12 +6,14 @@ import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {EmployeeComponent} from './employee/employee.component';
+import {CreateEmployeeComponent} from './create-employee/create-employee.component';
 import {DataService} from './data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    CreateEmployeeComponent
   ],
   imports: [
     BrowserModule,
